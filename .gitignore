@@ -110,3 +110,7 @@ datasets/
 .vscode/
 .idea/
 __MACOSX/
+
+# macOS Finder metadata files
+.DS_Store
+code/.DS_Store
