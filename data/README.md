@@ -1,4 +1,4 @@
-** Dataset Motivation and Overview **
+**Dataset Motivation and Overview**
 We use Wikitext for our model pretraining on masked language modeling, then IMDb, MRPC, and CoLA for evaluation. These three downstream
 tasks let us evaluate our model on grammar (CoLA), semantics (MRPC), and sentiment (IMDb), giving us a well rounded set of benchmarks to evaluate language capability. Below, you may find more information on each dataset and how to use them.
 

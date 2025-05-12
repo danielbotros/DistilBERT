@@ -1,4 +1,4 @@
-# DistillBERT
+# DistilBERT
 
 ## Introduction
 
@@ -12,7 +12,9 @@ We aimed to reproduce the results from Table 1 and Table 2 of the paper (shown b
 
 ![Comparison](./results/orig_paper_tables/table1.png)
 
-![comparison](./results/orig_paper_tables/table2.png)
+![Comparison](./results/orig_paper_tables/table2.png)
+
+![Comparison](./results/results_comparison.png)
 
 ## GitHub Contents
 
