@@ -1,0 +1,26 @@
+{
+    "train_losses": [
+        0.808442366275706,
+        0.5131535383090959,
+        0.3805491949491833
+    ],
+    "eval_accuracies": [
+        0.9012,
+        0.908,
+        0.904
+    ],
+    "epoch_times": [
+        790.9726371765137,
+        789.8536400794983,
+        791.7703921794891
+    ],
+    "student_accuracy": 0.9062,
+    "teacher_accuracy": 0.91924,
+    "retained_percent": 98.58143683912799,
+    "student_num_params": 66955010,
+    "teacher_num_params": 109483778,
+    "compression_ratio": 1.6351842528288771,
+    "student_inference_time_ms": 5.725526809692383,
+    "teacher_inference_time_ms": 9.872913360595703,
+    "inference_speedup": 1.7243676763302325
+}
