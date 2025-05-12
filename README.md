@@ -7,6 +7,7 @@ Our project replicates this by training and fine-tuning DistilBERT on downstream
 
 ## Chosen Result
 We aimed to reproduce the results from Table 1 and Table 2 of the paper, which demonstrate that DistilBERT retains most of BERT's performance on classification and GLUE Benchmark tasks. We focused evaluating the model's performance on on CoLA, MRPC, and IMDb tasks.
+![Comparisoin](results/results_comparison.png)
 
 ## GitHub Contents 
 **code/** contained our final python notebook and requirment.txt 
