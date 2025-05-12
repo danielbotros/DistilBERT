@@ -6,8 +6,9 @@ The paper “DistilBERT, a distilled version of BERT: smaller, faster, cheaper a
 Our project replicates this by training and fine-tuning DistilBERT on downstream tasks like sentiment analysis, grammar judgment, and paraphrase detection, retaining 94.35% of BERT's performance across tasks.
 
 ## Chosen Result
-We aimed to reproduce the results from Table 1 and Table 2 of the paper, which demonstrate that DistilBERT retains most of BERT's performance on classification and GLUE Benchmark tasks. We focused evaluating the model's performance on on CoLA, MRPC, and IMDb tasks.
-![Comparisoin](results/results_comparison.png)
+We aimed to reproduce the results from Table 1 and Table 2 of the paper (shown below), which demonstrate that DistilBERT retains most of BERT's performance on downstream tasks--namely, classification and GLUE Benchmark tasks. We focused evaluating the model's performance on CoLA, MRPC, and IMDb tasks.
+![Comparisoin](./results/orig_paper_tables/table1.png)
+![Comparisoin](./results/orig_paper_tables/table2.png)
 
 ## GitHub Contents 
 **code/** contained our final python notebook and requirment.txt 
@@ -21,14 +22,18 @@ We aimed to reproduce the results from Table 1 and Table 2 of the paper, which d
 **report/** contained the PDF file of our final report, which entails more details about the project 
 
 ## Re-implementation Details 
-To reproduce the results of the paper, we followed the knowledge distillation approach from the paper paper. We used the pretrained uncased BERT as the teacher model and DistilBERT as the student model. We reinitialized the student model layers by taking every other layer from the teacher model and removing the token-type embeddings and poolers. 
+To reproduce the results of the paper, we followed the knowledge distillation approach from the paper. We used the pretrained uncased BERT as the teacher model and DistilBERT as the student model. We reinitialized the student model layers by taking every other layer from the teacher model and removing the token-type embeddings and poolers. 
 
-The models were trained for 10 epochs on the wikitext dataset with a masked language modeling (MLM) task using a triple loss objective: MLM Loss, KL-Divergence Loss, and Cosine Embedding Loss. We ran the model on Colab free T4 GPUs, and fine-tuned it on downstream tasks such as CoLA, MRPC, and IMDb. 
+The models were trained for 10 epochs on the wikitext dataset--a much smaller dataset than the dataset that the original paper distilled on--due to time and compute constraints.
+(The original paper distilled the student BERT on a concatenation of Wikipedia and Toronto Book Corpus for a duration of 90 hours). Ours took around 3 hours roughly. 
+We trained the student model using a masked language modeling (MLM) task using the triple loss objective described in the paper: a linear combination of MLM Loss, KL-Divergence Loss, and Cosine Embedding Loss (teacher's weights are frozen during this distillation). We ran the model on Colab using the free T4 GPUs.
+For evaluating the student's performance, we evaluated both the student and teacher on the same downstream tasks. 
+In particular, we fine-tuned both the student and the teacher BERT using the same finetune settings/hyperparameters on the downstream tasks such as CoLA, MRPC, and IMDb. 
 
 Challenges included the limited computational resources available on Colab but the approach followed the original paper's methodology, ensuring consistency in the distillation process.
 
 ## Reproduction Steps 
-To run our code, download the files from /code and import them to Google Colab. Before running the noteboo, switch the Runtime Type to T4 GPU. 
+To run our code, download the Jupyter Notebook from /code and import it to Google Colab. Before running the notebook, switch the Runtime Type to T4 GPU. 
 
 ## Results/Insights 
 Our reimplementation produces results that are very similar to the original paper's results. 
